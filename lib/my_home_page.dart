@@ -33,8 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.deepPurple.shade800,
+        //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: Column(
@@ -50,11 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        color: Colors.deepPurple.shade800,
+        height: 50,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
+        backgroundColor: Colors.orange.shade700,
+        shape: const CircleBorder(eccentricity: 1),
         child: const Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }
