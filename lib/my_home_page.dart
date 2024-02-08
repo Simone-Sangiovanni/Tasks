@@ -54,16 +54,34 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         color: Colors.deepPurple.shade800,
-        height: 50,
+        height: 90,
+        child: Container(
+          alignment: Alignment.centerRight,
+          child: IconButton(
+            onPressed: _incrementCounter,
+            style: IconButton.styleFrom(
+                backgroundColor: Colors.orange.shade700,
+                shape: const CircleBorder(eccentricity: 0),
+                fixedSize: const Size(60, 60),
+                elevation: 20,
+                shadowColor: Colors.black
+            ),
+            icon: const Icon(
+              Icons.add,
+              color: Colors.deepPurple,
+              size: 40,
+            ),
+          ),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         backgroundColor: Colors.orange.shade700,
         shape: const CircleBorder(eccentricity: 1),
         child: const Icon(Icons.add),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,*/
     );
   }
 }
