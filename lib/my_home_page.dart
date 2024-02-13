@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tasks/bottom_app_bar/bottom_bar.dart';
+import 'package:tasks/task.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -11,6 +13,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final TextEditingController _textFieldController = TextEditingController();
+  final List<Task> _tasks = <Task>[];
 
   void _incrementCounter() {
     setState(() {
@@ -37,51 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
         //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(8.0),
+        children: const [],
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        color: Colors.deepPurple.shade800,
-        height: 90,
-        child: Container(
-          alignment: Alignment.centerRight,
-          child: IconButton(
-            onPressed: _incrementCounter,
-            style: IconButton.styleFrom(
-                backgroundColor: Colors.orange.shade700,
-                shape: const CircleBorder(eccentricity: 0),
-                fixedSize: const Size(60, 60),
-                elevation: 20,
-                shadowColor: Colors.black
-            ),
-            icon: const Icon(
-              Icons.add,
-              color: Colors.deepPurple,
-              size: 40,
-            ),
-          ),
-        ),
-      ),
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        backgroundColor: Colors.orange.shade700,
-        shape: const CircleBorder(eccentricity: 1),
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,*/
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
