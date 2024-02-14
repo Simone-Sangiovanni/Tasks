@@ -7,29 +7,32 @@ class TaskDialogBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return AlertDialog(
       title: const Text('Add a new todo item'),
-      content: TextField(
-        controller: _textFieldController,
-        decoration: const InputDecoration(hintText: 'Type your new todo'),
-        keyboardType: TextInputType.multiline,
-        maxLines: 6,
-        maxLength: 200,
+      content: SizedBox(
+        width: screenWidth * 0.9,
+        child: TextField(
+          controller: _textFieldController,
+          decoration: const InputDecoration(hintText: 'Type your new todo'),
+          keyboardType: TextInputType.multiline,
+          maxLines: 7,
+          maxLength: 200,
+        ),
       ),
+      shape: const LinearBorder(),
       actions: <Widget>[
         TextButton(
           child: const Text('Add'),
           onPressed: () {
-            //Navigator.of(context).pop();
             if(_textFieldController.text.isEmpty == false) {
               //_addTodoItem(_textFieldController.text);
-            } /*else {
-              dispose();
-            }*/ //TODO: capire come chiudere la finestra dopo che è stato cliccato il tasto add
+            }
+            Navigator.of(context).pop(); //after the Add button has been pressed, close the AlertDialog
           },
         ),
       ],
     );
   }
-
 }
