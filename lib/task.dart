@@ -1,5 +1,6 @@
 class Task {
-  late String task; //define the task content
-  late bool complete; //define if the task is complete
+  Task({required this.content});
+  bool complete = false;
+  String content;
   //TODO: completed tasks must be put at the end of the task list
 }

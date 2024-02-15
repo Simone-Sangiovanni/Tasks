@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tasks/providers/task_list_model.dart';
 
 import 'my_home_page.dart';
 
 void main() {
-  runApp(const MyApp()); //entry point
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TaskListModel(),
+      child: const MyApp(),
+    ),
+  ); //entry point
 }
 
 class MyApp extends StatelessWidget {
