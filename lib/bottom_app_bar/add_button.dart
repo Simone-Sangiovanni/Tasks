@@ -33,7 +33,7 @@ class AddButton extends StatelessWidget {
       ),
       icon: const Icon(
         Icons.add,
-        color: Colors.deepPurple,
+        color: Colors.white,
         size: 40,
       ),
     );
