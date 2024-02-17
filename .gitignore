@@ -13,3 +13,5 @@ tasks.iml
 
 #optional
 test/
+analysis_options.yaml
+devtools_options.yaml

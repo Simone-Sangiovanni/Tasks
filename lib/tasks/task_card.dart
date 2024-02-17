@@ -10,38 +10,66 @@ class TaskCard extends StatefulWidget {
 }
 
 class _TaskCardState extends State<TaskCard>{
+  Color _circleAvatarColor = Colors.deepPurple.shade800;
+  bool light = false;
 
-  TextStyle? _getTextStyle(bool checked) {
-    if (checked == false) {
+  TextStyle? _getTextStyle() {
+    if (widget.task.completed == false) {
       return null;
     } else {
       return const TextStyle(
-        color: Colors.black54,
+        color: Colors.black45,
         decoration: TextDecoration.lineThrough,
       );
     }
   }
 
+  Color _getColor() {
+    if(widget.task.completed == false) {
+      return Colors.white70;
+    } else {
+      return Colors.grey.shade800;
+    }
+  }
+
+  void _completed() {
+    setState(() {
+      widget.task.completed = !widget.task.completed;
+      if(_circleAvatarColor == Colors.deepPurple.shade800) {
+        _circleAvatarColor = Colors.grey.shade600;
+      } else {
+        _circleAvatarColor = Colors.deepPurple.shade800;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white70,
+      color: _getColor(),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Colors.deepPurple[800],
-          child: Text(
-            widget.task.title[0],
-            style: _getTextStyle(widget.task.completed), /*const TextStyle(color: Colors.white70)*/
-          ),
+          backgroundColor: _circleAvatarColor,
         ),
         title: Text(
           widget.task.title,
-          style: _getTextStyle(widget.task.completed),
+          style: _getTextStyle(),
         ),
-        subtitle: Text(widget.task.content),
-        onTap: () => setState(() {
-          widget.task.completed = !widget.task.completed;
-        })
+        subtitle: Text(
+          widget.task.content
+        ),
+        trailing: Switch(
+          // This bool value toggles the switch.
+          value: light,
+          activeColor: Colors.red,
+          onChanged: (bool value) {
+            // This is called when the user toggles the switch.
+            setState(() {
+              light = value;
+            });
+          },
+        ),
+        onLongPress: () => _completed(),
       ),
     );
   }
