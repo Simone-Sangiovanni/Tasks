@@ -18,15 +18,7 @@ class _TaskListState extends State<TaskList>{
         padding: const EdgeInsets.all(8.0),
         scrollDirection: Axis.vertical,
         children: [
-          for(var task in value.tasks) TaskCard(task: task)
-          /*for(var task in value.tasks) Container(
-            margin: const EdgeInsets.only(bottom: 8.0),
-            color: Colors.red,
-            alignment: Alignment.center,
-            width: 500,
-            height: 100,
-            child: Text(task.title),
-          ),*/
+          for(var task in value.tasks) TaskCard(task: task),
         ],
       )
     );

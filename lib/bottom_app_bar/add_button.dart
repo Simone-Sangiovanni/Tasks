@@ -4,8 +4,6 @@ import 'package:tasks/task_dialog_box.dart';
 class AddButton extends StatelessWidget {
   const AddButton({super.key});
 
-
-
   Future<void> _displayDialog(BuildContext context) {
     return showDialog<void>(
       context: context,
@@ -16,14 +14,9 @@ class AddButton extends StatelessWidget {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {
-        _displayDialog(context);
-      },
       style: IconButton.styleFrom(
           backgroundColor: Colors.orange.shade700,
           shape: const CircleBorder(eccentricity: 0),
@@ -36,6 +29,9 @@ class AddButton extends StatelessWidget {
         color: Colors.white,
         size: 40,
       ),
+      onPressed: () {
+        _displayDialog(context);
+      },
     );
   }
 }
