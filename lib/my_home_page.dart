@@ -12,7 +12,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       // TODO: create a class that define the AppBar
       appBar: AppBar(
-        backgroundColor: AppConstant.mainColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         // TODO: change the icon with the real app logo
         leading: const Icon(
           Icons.flutter_dash,

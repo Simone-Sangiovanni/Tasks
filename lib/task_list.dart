@@ -15,7 +15,7 @@ class _TaskListState extends State<TaskList>{
   Widget build(BuildContext context) {
     return Consumer<TaskListModel>(
       builder: (context, value, child) => ListView(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         scrollDirection: Axis.vertical,
         children: [
           for(var task in value.tasks) TaskCard(task: task),

@@ -27,9 +27,18 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     // entry for the app
-    return const MaterialApp(
+    return MaterialApp(
+      //TODO: complete the theme of the app
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppConstant.mainColor,
+          primary: AppConstant.mainColor,
+        ),
+        scaffoldBackgroundColor: Colors.grey.shade100,
+      ),
       title: AppConstant.appTitle,
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }

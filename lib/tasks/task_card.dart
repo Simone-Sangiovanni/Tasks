@@ -24,14 +24,6 @@ class _TaskCardState extends State<TaskCard>{
     }
   }
 
-  Color _getColor() {
-    if(widget.task.completed == false) {
-      return Colors.white70;
-    } else {
-      return Colors.grey.shade800;
-    }
-  }
-
   void _completed() {
     setState(() {
       widget.task.completed = !widget.task.completed;
@@ -46,28 +38,15 @@ class _TaskCardState extends State<TaskCard>{
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: _getColor(),
+      color: Colors.grey.shade800,
       child: ListTile(
+        //TODO: modify
         leading: CircleAvatar(
           backgroundColor: _circleAvatarColor,
         ),
         title: Text(
-          widget.task.title,
-          style: _getTextStyle(),
-        ),
-        subtitle: Text(
-          widget.task.content
-        ),
-        trailing: Switch(
-          // This bool value toggles the switch.
-          value: light,
-          activeColor: Colors.red,
-          onChanged: (bool value) {
-            // This is called when the user toggles the switch.
-            setState(() {
-              light = value;
-            });
-          },
+          widget.task.content,
+          style: TextStyle(color: Colors.white),
         ),
         onLongPress: () => _completed(),
       ),

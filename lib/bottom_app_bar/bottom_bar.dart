@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/app_constant.dart';
 import 'package:tasks/bottom_app_bar/add_button.dart';
 
 class BottomBar extends StatelessWidget {
@@ -9,7 +8,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
-      color: AppConstant.mainColor,
+      color: Theme.of(context).colorScheme.primary,
       height: 90,
       child: Container(
         alignment: Alignment.centerRight,

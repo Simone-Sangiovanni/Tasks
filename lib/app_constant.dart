@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 class AppConstant {
   static const String appTitle = "Tasks";
 
-  static Color mainColor = Colors.deepPurple.shade800;
+  static Color mainColor = Colors.deepPurple.shade900;
 }
