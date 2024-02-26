@@ -18,10 +18,12 @@ class MyHomePage extends StatelessWidget {
           size: 30,
           color: Colors.white,
         ),
-        title: Text(
+        title: const Text(
           "Tasks",
-          //style: TextStyle(color: Colors.white),
-          style: Theme.of(context).textTheme.displayMedium,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+          ),
         ),
       ),
       body: const TaskList(),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/themes/text_themes.dart';
 
 class AppThemes {
   //private constructor
@@ -8,16 +7,14 @@ class AppThemes {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: Colors.deepPurple.shade900,
+    primaryColor: const Color(0xff311b92),
     scaffoldBackgroundColor: Colors.grey.shade300,
-    textTheme: TextThemes.lightTextTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    primaryColor: Colors.deepPurple.shade900,
-    scaffoldBackgroundColor: Colors.grey.shade900,
-    textTheme: TextThemes.darkTextTheme,
+    primaryColor: const Color(0xaf311b92),
+    scaffoldBackgroundColor: const Color(0xff303030),
   );
 }
