@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:tasks/app_constant.dart';
 import 'package:tasks/providers/task_list_model.dart';
 import 'package:tasks/my_home_page.dart';
+import 'package:tasks/themes/app_themes.dart';
 
 // TODO: add real app logo instead of the flutter logo that appear on the screen
 
@@ -29,15 +29,13 @@ class MyApp extends StatelessWidget {
     // entry for the app
     return MaterialApp(
       //TODO: complete the theme of the app
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppConstant.mainColor,
-          primary: AppConstant.mainColor,
-        ),
-        scaffoldBackgroundColor: Colors.grey.shade100,
-      ),
-      title: AppConstant.appTitle,
+      // set the theme of the app based on the system theme
+      themeMode: ThemeMode.system,
+      //configure the light theme
+      theme: AppThemes.lightTheme,
+      //configure the dark theme
+      darkTheme: AppThemes.darkTheme,
+      title: "Tasks",
       home: const MyHomePage(),
     );
   }

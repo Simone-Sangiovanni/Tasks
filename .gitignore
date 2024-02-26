@@ -7,9 +7,10 @@ build/
 
 #hidden files
 .metadata
+
 #files
 pubspec.lock
-tasks.iml
+*.iml
 
 #optional
 test/

@@ -38,7 +38,7 @@ class _TaskCardState extends State<TaskCard>{
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey.shade800,
+      color: Theme.of(context).primaryColor,
       child: ListTile(
         //TODO: modify
         leading: CircleAvatar(
@@ -46,7 +46,8 @@ class _TaskCardState extends State<TaskCard>{
         ),
         title: Text(
           widget.task.content,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Color(0xFFE0E0E0)),
+          //style: Theme.of(context).textTheme.displaySmall,
         ),
         onLongPress: () => _completed(),
       ),

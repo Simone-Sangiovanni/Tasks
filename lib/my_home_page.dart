@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/app_constant.dart';
 import 'package:tasks/bottom_app_bar/bottom_bar.dart';
 import 'package:tasks/task_list.dart';
 
@@ -12,16 +11,17 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       // TODO: create a class that define the AppBar
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).primaryColor,
         // TODO: change the icon with the real app logo
         leading: const Icon(
           Icons.flutter_dash,
           size: 30,
           color: Colors.white,
         ),
-        title: const Text(
-            AppConstant.appTitle,
-            style: TextStyle(color: Colors.white),
+        title: Text(
+          "Tasks",
+          //style: TextStyle(color: Colors.white),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       body: const TaskList(),

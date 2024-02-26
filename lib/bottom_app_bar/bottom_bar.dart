@@ -8,7 +8,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
-      color: Theme.of(context).colorScheme.primary,
+      color: Colors.deepPurple.shade900,
       height: 90,
       child: Container(
         alignment: Alignment.centerRight,
