@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/task_dialog_box.dart';
+import 'package:tasks/dialogBox/invoke_dialog_box.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({super.key});
-
-  Future<void> _displayDialog(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: true, // define if the user can close the dialog box tapping in another part of the screen
-      builder: (BuildContext context) {
-        return TaskDialogBox();
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +20,7 @@ class AddButton extends StatelessWidget {
         size: 40,
       ),
       onPressed: () {
-        _displayDialog(context);
+        InvokeDialogBox.displayDialog(context);
       },
     );
   }

@@ -20,11 +20,11 @@ class TaskDialogBox extends StatelessWidget {
           height: screenHeight * 0.3,
           child: TextField(
             controller: _textFieldController,
-            autofocus: true,
-            textAlignVertical: TextAlignVertical.top,
             maxLines: null,
-            expands: true,
             maxLength: 255,
+            autofocus: true,
+            expands: true,
+            textAlignVertical: TextAlignVertical.top,
             decoration: const InputDecoration(
               hintText: 'Type your new todo',
               border: OutlineInputBorder(borderSide: BorderSide(width: 2.0))
@@ -33,25 +33,21 @@ class TaskDialogBox extends StatelessWidget {
         ),
         shape: const LinearBorder(),
         actions: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(5),
+          TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: Theme.of(context).primaryColor,
+              shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              padding: const EdgeInsets.all(16.0),
+              textStyle: const TextStyle(fontSize: 20),
             ),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.all(16.0),
-                textStyle: const TextStyle(fontSize: 20),
-              ),
-              child: const Text('Add'),
-              onPressed: () {
-                if(_textFieldController.text.isEmpty == false) {
-                  value.addTask(_textFieldController.text);
-                }
-                Navigator.of(context).pop(); //after the Add button has been pressed, close the AlertDialog
-              },
-            ),
+            child: const Text('Add'),
+            onPressed: () {
+              if(_textFieldController.text.isEmpty == false) {
+                value.addTask(_textFieldController.text);
+              }
+              Navigator.of(context).pop(); //after the Add button has been pressed, close the AlertDialog
+            },
           ),
         ],
       )

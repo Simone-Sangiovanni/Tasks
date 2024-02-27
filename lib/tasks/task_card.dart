@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tasks/tasks/task.dart';
 
+/* TODO:
+* the style of the card is not correctly decided from his state (completed or not), so when the listview has a lot of cards
+* the color change (wrongly) when rebuilding the elements that are shown on the screen.
+* This problem must be fixed
+* */
+
 class TaskCard extends StatefulWidget {
   const TaskCard({super.key, required this.task});
   final Task task;
