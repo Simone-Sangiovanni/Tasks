@@ -1,62 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tasks/tasks/task.dart';
+import '../providers/task_list_model.dart';
 
-/* TODO:
-* the style of the card is not correctly decided from his state (completed or not), so when the listview has a lot of cards
-* the color change (wrongly) when rebuilding the elements that are shown on the screen.
-* This problem must be fixed
-* */
-
-class TaskCard extends StatefulWidget {
+class TaskCard extends StatelessWidget {
   const TaskCard({super.key, required this.task});
   final Task task;
 
   @override
-  State<TaskCard> createState() => _TaskCardState();
-}
-
-class _TaskCardState extends State<TaskCard>{
-  Color _circleAvatarColor = Colors.deepPurple.shade800;
-  IconData _icon = Icons.circle;
-  Color _cardColor = const Color(0xfff87e14);
-  double _iconSize = 15;
-
-  void _completed() {
-    setState(() {
-      widget.task.completed = !widget.task.completed;
-      if(widget.task.completed == true) {
-        _circleAvatarColor = Colors.grey.shade600;
-        _icon = Icons.done;
-        _cardColor = const Color(0x5ff87e14);
-        _iconSize = 30;
-      } else {
-        _circleAvatarColor = Colors.deepPurple.shade800;
-        _icon = Icons.circle;
-        _cardColor = const Color(0xfff87e14);
-        _iconSize = 15;
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Card(
-      color: _cardColor,
-      child: ListTile(
-        //TODO: modify
-        leading: CircleAvatar(
-          backgroundColor: _circleAvatarColor,
-          child: Icon(
-            _icon,
-            color: const Color(0xffe0e0e0),
-            size: _iconSize,
+    return Consumer<TaskListModel>(
+      builder: (context, value, child) => Card(
+        color: task.completed == false ? const Color(0xfff87e14) : const Color(0x5ff87e14),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundColor: task.completed == false ? Colors.deepPurple.shade800 : Colors.grey.shade600,
+            child: Icon(
+              task.completed == false ? Icons.circle : Icons.done,
+              color: const Color(0xffe0e0e0),
+              size: task.completed == false ? 15 : 30,
+            ),
           ),
+          title: Text(
+            task.content,
+            style: const TextStyle(color: Color(0xff000000)),
+          ),
+          onTap: () {
+            if (task.completed == false) {
+              value.markCompleted(task.id);
+            } else {
+              value.markNotCompleted(task.id);
+            }
+          },
+          //onLongPress: () => _remove(),
         ),
-        title: Text(
-          widget.task.content,
-          style: const TextStyle(color: Color(0xff000000)),
-        ),
-        onTap: () => _completed(),
       ),
     );
   }

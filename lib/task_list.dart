@@ -11,16 +11,19 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList>{
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskListModel>(
-      builder: (context, value, child) => ListView.builder(
-        padding: const EdgeInsets.all(0.0),
-        scrollDirection: Axis.vertical,
-        itemCount: value.tasks.length,
-        itemBuilder: (BuildContext context, int index) {
-          return TaskCard(task: value.tasks[index]);
-        },
+      builder: (context, value, child) => SizedBox(
+        child: ListView.builder(
+          padding: const EdgeInsets.all(0.0),
+          scrollDirection: Axis.vertical,
+          itemCount: value.tasks.length,
+          itemBuilder: (BuildContext context, int index) {
+            return TaskCard(task: value.tasks[index]);
+          },
+        ),
       )
     );
   }

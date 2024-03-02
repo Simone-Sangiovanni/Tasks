@@ -9,11 +9,15 @@ import 'package:tasks/themes/app_themes.dart';
 
 void main() {
   runApp(
-    // create a notifier for widget updates, the model contain the elements that change and the methods to make the changes
-    ChangeNotifierProvider(
-      create: (context) => TaskListModel(),
+  // create a notifier for widget updates, the model contain the elements that change and the methods to make the changes
+  MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => TaskListModel(),
+        ),
+      ],
       child: const MyApp(),
-    ),
+    )
   ); //entry point
 }
 
