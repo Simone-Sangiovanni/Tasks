@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: Theme.of(context).primaryColor,
       // TODO: change the icon with the real app logo
       leading: const Image(
-        image: AssetImage("images/icon.png"),
+        image: AssetImage("assets/images/icon.png"),
       ),
       title: const Text(
         "Tasks",

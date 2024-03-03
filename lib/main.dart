@@ -32,8 +32,7 @@ class MyApp extends StatelessWidget {
     ]);
     // entry for the app
     return MaterialApp(
-      //TODO: complete the theme of the app
-      // set the theme of the app based on the system theme
+      //TODO: complete the theme of the app set the theme of the app based on the system theme
       themeMode: ThemeMode.system,
       //configure the light theme
       theme: AppThemes.lightTheme,

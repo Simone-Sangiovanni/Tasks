@@ -11,6 +11,8 @@ build/
 #files
 pubspec.lock
 *.iml
+.flutter-plugins
+.flutter-plugins-dependencies
 
 #optional
 test/
