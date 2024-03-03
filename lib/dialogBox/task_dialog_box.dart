@@ -9,25 +9,27 @@ class TaskDialogBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width * 0.9;
+    double height = MediaQuery.of(context).size.height * 0.3;
 
     return Consumer<TaskListModel>(
       builder: (context, value, child) => AlertDialog(
         title: const Text('Add a new todo item'),
         content: SizedBox(
-          width: screenWidth * 0.9,
-          height: screenHeight * 0.3,
+          width: width,
+          height: height,
           child: TextField(
             controller: _textFieldController,
             maxLines: null,
             maxLength: 255,
-            autofocus: true,
             expands: true,
+            autofocus: true,
             textAlignVertical: TextAlignVertical.top,
             decoration: const InputDecoration(
               hintText: 'Type your new todo',
-              border: OutlineInputBorder(borderSide: BorderSide(width: 2.0))
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(width: 2.0)
+              ),
             ),
           ),
         ),
@@ -37,7 +39,9 @@ class TaskDialogBox extends StatelessWidget {
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Theme.of(context).primaryColor,
-              shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+              ),
               padding: const EdgeInsets.all(16.0),
               textStyle: const TextStyle(fontSize: 20),
             ),

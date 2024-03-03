@@ -11,10 +11,8 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget{
     return AppBar(
       backgroundColor: Theme.of(context).primaryColor,
       // TODO: change the icon with the real app logo
-      leading: const Icon(
-        Icons.flutter_dash,
-        size: 30,
-        color: Colors.white,
+      leading: const Image(
+        image: AssetImage("images/icon.png"),
       ),
       title: const Text(
         "Tasks",
